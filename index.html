@@ -22,20 +22,20 @@
               display: flex;
               flex-wrap: wrap;
               justify-content: center;
-              gap: 20px; /* Tạo khoảng cách đều giữa các phần tử */
+              gap: 20px;
               margin-top: 20px;
               padding: 0 20px;
             }
             footer {
-              background-color: #90ee90; /* Màu xanh lá cây nhạt */
-              border-radius: 50%; /* Hình tròn */
+              background-color: #90ee90;
+              border-radius: 50%;
               padding: 15px 30px;
-              width: 200px; /* Điều chỉnh lại chiều rộng */
-              height: 200px; /* Điều chỉnh lại chiều cao */
+              width: 200px;
+              height: 200px;
               text-align: center;
-              color: #ff1493; /* Chữ màu hồng */
-              font-size: 16px; /* Giảm kích thước chữ để vừa với khối */
-              box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); /* Hiệu ứng đổ bóng */
+              color: #ff1493;
+              font-size: 16px;
+              box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
               margin: 20px auto;
               font-family: "Baloo 2";
             }
@@ -51,7 +51,7 @@
               font-family: "Baloo 2";
             }
             .TieuDeBang {
-                background-color: #ff1493;
+                background-color: #ff99cc; /* Màu nhẹ hơn */
                 color: #000000;
                 border-top-left-radius: 20px;
                 border-top-right-radius: 20px;
@@ -61,23 +61,24 @@
             }
             .Bang {
                 width: 100%;
-                max-width: 500px; /* Giới hạn chiều rộng để tránh quá rộng trên màn hình lớn */
+                max-width: 500px;
                 background-color: #ffffff;
                 border-radius: 20px;
                 box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
                 overflow: hidden;
-                transition: background-color 2s ease-out 100ms;
+                transition: background-color 2s ease-out 100ms, box-shadow 0.3s ease-in-out;
             }
             .Bang:hover {
-                box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
+                box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
             }
             .Bang a {
                 text-decoration: none;
                 color: black;
             }
             .Bang img {
-                width: 100%; /* Đảm bảo hình ảnh tự động chiếm toàn bộ chiều rộng */
-                max-height: 200px; /* Hạn chế chiều cao của hình ảnh */
+                width: 100%;
+                height: auto;
+                max-height: 200px;
                 object-fit: cover;
                 border-radius: 20px;
                 margin-bottom: 15px;
@@ -87,23 +88,46 @@
                 text-align: justify;
                 font-size: 16px;
             }
-      /* CSS cho màn hình điện thoại */
-      @media only screen and (max-width: 550px) {
-        .header {
-          font-size: 20px;
-        }
-        .TieuDeBang {
-          font-size: 18px;
-        }
-        .Bang {
-          max-width: 100%;
-        }
-      }
-      </style>
+            /* CSS cho màn hình điện thoại */
+            @media only screen and (max-width: 550px) {
+                .header {
+                    font-size: 20px;
+                }
+                .TieuDeBang {
+                    font-size: 18px;
+                }
+                .Bang {
+                    max-width: 100%;
+                }
+            }
+
+            /* Nút "Back to Top" */
+            .back-to-top {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background-color: #ff1493;
+                color: white;
+                border-radius: 50%;
+                padding: 10px;
+                cursor: pointer;
+                font-size: 18px;
+                box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+                transition: background-color 0.3s ease-in-out;
+            }
+            .back-to-top:hover {
+                background-color: #ff99cc;
+            }
+    </style>
     <script>
         document.documentElement.style.setProperty("--MauChuDao", "#ff1493");
         document.documentElement.style.setProperty("--MauPhu", "#4682b4");
         document.documentElement.style.setProperty("--MauChu", "#000000");
+
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     </script>
 </head>
 <body>
@@ -152,5 +176,8 @@
   <footer>
       <p>Thực hiện bởi Nguyễn Đức Nhật Anh, Nguyễn Thị Quỳnh Như và Hoàng Thảo Nguyên - 26/12/2024</p>
   </footer>
+  
+  <!-- Back to Top Button -->
+  <div class="back-to-top" onclick="scrollToTop()">↑</div>
 </body>
 </html>
